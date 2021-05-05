@@ -4,6 +4,30 @@
   margin: 15rem 0;
 
   display: grid; // turn grid item into grid container
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  // creating responsive design without writing media queries
+  // auto-fit creates as many tracks as can fit in the width. 25rem - 1fr
   grid-gap: 6rem;
+  align-items: start; // aligns all p elements to same height
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2;
+    // 1 / -1   = -1 would only work for explicit grid, not for implicit grids
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
