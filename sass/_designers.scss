@@ -9,12 +9,24 @@
   justify-items: center;
   grid-row-gap: 2rem;
 
+  @media only screen and (max-width: $bp-800px) {
+    grid-column: 1 / -1;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: min-content max-content;
     grid-column-gap: 2rem;
     grid-row-gap: 5vh; // height changes when resizing browser so it doesnt look too large
     align-items: center;
+
+    @media only screen and (max-width: $bp-800px) {
+      grid-template-columns: repeat(3, min-content max-content);
+    }
+
+    @media only screen and (max-width: $bp-600px) {
+      grid-template-columns: min-content max-content;
+    }
   }
 
   &__img {

@@ -17,6 +17,8 @@ $font-heading: "Josefin Sans", sans-serif;
 // RESPONSIVE BREAKPOINTS
 $bp-1200px: 75em; // 1200 / 16
 $bp-1000px: 62.5em;
+$bp-800px: 50em;
+$bp-600px: 37.5em;
 
 *,
 *::before,
@@ -29,6 +31,7 @@ $bp-1000px: 62.5em;
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 10px / 16px = 62.5 -> 1rem = 10px
+  overflow-x: hidden;
 
   // Desktop first: max-width
   @media only screen and (max-width: $bp-1200px) {
@@ -41,6 +44,7 @@ body {
   color: $color-grey-dark-2;
   font-weight: 300;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .container {
@@ -60,5 +64,12 @@ body {
       [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
       [center-end]
       minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-800px) {
+    grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content repeat(
+        3,
+        min-content
+      );
   }
 }
